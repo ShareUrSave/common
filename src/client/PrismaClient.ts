@@ -9,7 +9,7 @@ type ExtendedArgs<T> = T & {
   hardDelete?: boolean;
 };
 
-const MODELS_WITH_SOFT_DELETE = ["User", "Game", "Save"];
+const MODELS_WITH_SOFT_DELETE = ["User"];
 
 export default class PrismaClient extends BasePrismaClient {
   constructor(options?: Prisma.PrismaClientOptions) {
