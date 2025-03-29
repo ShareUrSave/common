@@ -23,5 +23,6 @@ model User {
 
   @@index(email)
   @@index(username)
-  @@map("user")
+  @@index(displayName)
+  @@map("users")
 }
