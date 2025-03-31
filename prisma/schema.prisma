@@ -15,7 +15,7 @@ model User {
   displayName String? @map("display_name")
   email       String  @unique
   password    String?
-  pictureUrl  String? @map("picture_url")
+  avatarUrl  String? @map("avatar_url")
 
   createdAt DateTime  @default(now()) @map("created_at")
   updatedAt DateTime  @updatedAt @map("updated_at")
