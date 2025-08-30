@@ -2,32 +2,22 @@
   "name": "@share-ur-save/common",
   "version": "1.0.0",
   "private": true,
-  "main": "./dist/cjs/index.js",
-  "module": "./dist/esm/index.js",
-  "types": "./dist/esm/index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "require": "./dist/cjs/index.js",
-      "import": "./dist/mjs/index.js",
-      "types": "./dist/esm/index.d.ts"
-    },
-    "./*": {
-      "require": "./dist/cjs/*.js",
-      "import": "./dist/mjs/*.js",
-      "types": "./dist/esm/*.d.ts"
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
     }
   },
   "files": [
-    "dist"
+    "dist",
+    "prisma"
   ],
-  "bin": {
-    "migrate": "scripts/migrate.js"
-  },
   "scripts": {
-    "build": "scripts/build.js",
-    "build:cjs": "tsc -p tsconfig.cjs.json",
-    "build:esm": "tsc -p tsconfig.esm.json",
-    "build:types": "tsc -p tsconfig.types.json",
+    "build": "tsup",
     "prisma:generate": "prisma generate --schema=./prisma/schema.prisma",
     "prisma:migrate": "prisma migrate dev --schema=./prisma/schema.prisma",
     "prisma:studio": "prisma studio --schema=./prisma/schema.prisma",
@@ -45,6 +35,10 @@
     "prisma": "^6.5.0"
   },
   "devDependencies": {
+    "@types/node": "^24.3.0",
+    "prettier": "^3.6.2",
+    "prettier-plugin-organize-imports": "^4.2.0",
+    "tsup": "^8.5.0",
     "typescript": "^5.8.2"
   }
 }
