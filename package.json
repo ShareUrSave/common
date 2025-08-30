@@ -14,10 +14,12 @@
   },
   "files": [
     "dist",
-    "prisma"
+    "prisma",
+    "build.sh"
   ],
   "scripts": {
-    "build": "npm run prisma:generate && tsup",
+    "build": "./build.sh",
+    "build:full": "chmod +x build.sh && ./build.sh",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
     "prisma:studio": "prisma studio",
