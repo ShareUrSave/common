@@ -12,6 +12,5 @@ export default defineConfig((options) => {
       js: format === 'cjs' ? '.cjs' : '.mjs',
     }),
     target: 'esnext',
-    noExternal: ['@prisma/client'],
   };
 });
