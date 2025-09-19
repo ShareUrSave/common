@@ -3,7 +3,7 @@
 const { execSync } = require('child_process');
 const path = require('path');
 const fs = require('fs');
-const { name: packageName } = require('package.json');
+const { name: packageName } = require('../package.json');
 
 const commonDir = path.resolve(__dirname, '..');
 const schemaPath = path.join(commonDir, 'prisma', 'schema.prisma');
