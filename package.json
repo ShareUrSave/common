@@ -5,6 +5,9 @@
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
+  "bin": {
+    "common": "./bin/common-cli.js"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -14,14 +17,17 @@
   },
   "files": [
     "dist",
-    "prisma"
+    "prisma",
+    "bin"
   ],
   "scripts": {
     "build": "tsup",
     "build:full": "npm run prisma:generate && npm run build",
+    "dev": "tsup --watch",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
     "prisma:studio": "prisma studio",
+    "postinstall": "npm run build:full",
     "prepare": "npm run build:full"
   },
   "keywords": [],
@@ -31,9 +37,17 @@
     "type": "git",
     "url": "git@github.com:ShareUrSave/common.git"
   },
-  "dependencies": {
+  "peerDependencies": {
     "@prisma/client": "^6.5.0",
     "prisma": "^6.5.0"
+  },
+  "peerDependenciesMeta": {
+    "@prisma/client": {
+      "optional": false
+    },
+    "prisma": {
+      "optional": false
+    }
   },
   "devDependencies": {
     "@types/node": "^24.3.0",
