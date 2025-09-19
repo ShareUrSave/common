@@ -14,16 +14,15 @@
   },
   "files": [
     "dist",
-    "prisma",
-    "build.sh"
+    "prisma"
   ],
   "scripts": {
-    "build": "./build.sh",
-    "build:full": "chmod +x build.sh && ./build.sh",
+    "build": "tsup",
+    "build:full": "npm run prisma:generate && npm run build",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
     "prisma:studio": "prisma studio",
-    "prepare": "npm run build"
+    "prepare": "npm run build:full"
   },
   "keywords": [],
   "author": "",
